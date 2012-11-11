@@ -1,0 +1,46 @@
+termcolor
+=========
+
+ANSII Color formatting for terminal output
+
+### Available Colors:
++ BLACK
++ RED
++ GREEN
++ YELLOW
++ BLUE
++ MAGENTA
++ CYAN
++ WHITE
+and: 
++ DEFAULT 
+
+### BOOLEAN ?
+Use  `TRUE` and `FALSE` 
+
+### Functions:
+
++ `bgColor(COLOR)` : 
+
++ `fgColor(COLOR)` :
+
++ `textBold(BOOLEAN)` :
+
++ `textBlink(BOOLEAN)` :
+
++ `colorReverse(BOOLEAN)`:
+
++ `textUnderline(BOOLEAN)`:
+
++ `highFgIntensity(BOOLEAN)` :
+
++ `highBgIntensity(BOOLEAN)` :
+
++ `setStyle()` :
+
++ `resetStyle()` :
+
+
+
+
+

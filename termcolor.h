@@ -22,6 +22,7 @@
 /*
  * About: ANSII Color formatting for output in terminal.
  * TODO: Add code documentation
+ * TODO: add Italic decoration
  */
 
 #ifndef _TERMCOLOR_H

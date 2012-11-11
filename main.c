@@ -15,17 +15,17 @@ int main() {
 the output of its console application.\n\n");
 	printf("Some Examples: \n\n");
 	
-	bgColor(RED);
+	bgColor(RED); // Background RED and not "RED" !
 	printf("text with RED Background\n\n");
-	bgColor(DEFAULT);
-	fgColor(RED);
+	bgColor(DEFAULT); // Default Background Color
+	fgColor(RED); // RED Foreground color 
 	printf("text with RED Foreground\n\n");
 	bgColor(RED);
 	fgColor(YELLOW);
 	printf("YELLOW text in RED Background\n\n");
-	textBold(TRUE);
+	textBold(TRUE); // Bold Text
 	printf("YELLOW and BOLD text in RED Background\n\n");
-	textUnderline(TRUE);
+	textUnderline(TRUE); // Underlined text 
 	bgColor(DEFAULT);
 	printf("YELLOW and BOLD and Underlined text\n\n");
 	fgColor(DEFAULT);
@@ -35,7 +35,7 @@ the output of its console application.\n\n");
 	textBlink(TRUE);
 	printf("BLINKING text with default foreground and default background\n\n");
 	
-	resetStyle();
+	resetStyle(); // Reset all as default 
 	printf("Now Examples using High Intensity\n\n");
 	highFgIntensity(TRUE);
 	highBgIntensity(TRUE);
