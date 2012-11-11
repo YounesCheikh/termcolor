@@ -14,8 +14,8 @@
  * 
  * for more informations contact at <contact@cYounes.com>
  * 
- * author: Younes Cheikh
- *  
+ * author: Younes Cheikh : cyounes@twitter
+ * Project Page: https://github.com/cyounes/termcolor
  */
 
 

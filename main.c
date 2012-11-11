@@ -4,7 +4,6 @@
  * author: Younes CHEIKH | cyounes@twitter
  * 
  */
-
 #include <stdio.h>
 #include "termcolor.h"
 
