@@ -3,7 +3,7 @@ Termcolor
 
 Is a C library used for ANSII Color formatting for terminal output.
 
-![Termcolor Library](http://localhost/examples/example_termcolor.png) 
+![Termcolor Library](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png) 
 
 ## Available Colors:
  `BLACK` `RED` `GREEN` `YELLOW` `BLUE` `MAGENTA` `CYAN` `WHITE`
@@ -81,7 +81,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![termcolor red background](http://localhost/examples/red_background.png) 
+![termcolor red background](https://raw.github.com/cyounes/termcolor/master/examples/red_background.png) 
 -
 ##### Default background + Red foreground:
 
@@ -93,7 +93,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![termcolor red foreground](http://localhost/examples/red_foreground.png)
+![termcolor red foreground](https://raw.github.com/cyounes/termcolor/master/examples/red_foreground.png)
 -
 ##### Yellow text on red background:
 
@@ -105,7 +105,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![Yellow text on red background](http://localhost/examples/yellow_in_red.png)
+![Yellow text on red background](https://raw.github.com/cyounes/termcolor/master/examples/yellow_in_red.png)
 -
 ##### Yellow Bold text on red background:
 
@@ -118,7 +118,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![termcolor Yellow Bold text on red background](http://localhost/examples/bold_yellow_in_red.png)
+![termcolor Yellow Bold text on red background](https://raw.github.com/cyounes/termcolor/master/examples/bold_yellow_in_red.png)
 -
 ##### Yellow, Bold and underlined text on red background:
 
@@ -132,7 +132,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![termcolor Yellow, Bold and underlined text on red background](http://localhost/examples/bold_yellow_underline.png)
+![termcolor Yellow, Bold and underlined text on red background](https://raw.github.com/cyounes/termcolor/master/examples/bold_yellow_underline.png)
 -
 
 ##### High Intensity: Yellow Bold text on red background:
@@ -148,7 +148,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![termcolor High Intensity: Yellow Bold text on red background](http://localhost/examples/high_intens.png)
+![termcolor High Intensity: Yellow Bold text on red background](https://raw.github.com/cyounes/termcolor/master/examples/high_intens.png)
 -
 
 ##### Reversed colors:
@@ -163,7 +163,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 }
 ```
 ######Result:
-![termcolor Reversed colors](http://localhost/examples/reversed_colors.png)
+![termcolor Reversed colors](https://raw.github.com/cyounes/termcolor/master/examples/reversed_colors.png)
 -
 
 ##### Main Example:
@@ -222,7 +222,7 @@ the output of its console application.\n\n");
 
 ```
 ######Result:
-![termcolor Reversed colors](http://localhost/examples/example_termcolor.png)
+![termcolor Reversed colors](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png)
 -
 
 
