@@ -140,6 +140,8 @@ void resetStyle() ;
 
 void autoResetStyle(BOOLEAN autoReset) ;
 
+BOOLEAN colorChanged(char * tmpString);
+
 void cprint(char * string);
 
 
@@ -238,6 +240,31 @@ void autoResetStyle(BOOLEAN autoReset) {
     _AUTO_RESET = autoReset;
 }
 
+BOOLEAN colorChanged(char * tmpString) {
+	BOOLEAN retVal = FALSE;
+	
+	retVal = (strcmp(tmpString, START_BG) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, BLACK_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, RED_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, GREEN_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, YELLOW_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, BLUE_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, MAGENTA_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, CYAN_BACKGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, WHITE_BACKGROUND) == 0 ) ? TRUE : retVal ;
+                    
+                    //FOREGROUND COLOR
+	retVal = (strcmp(tmpString, START_FG) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, BLACK_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, RED_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, GREEN_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, YELLOW_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, BLUE_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, MAGENTA_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, CYAN_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	retVal = (strcmp(tmpString, WHITE_FOREGROUND) == 0 ) ? TRUE : retVal ;
+	return retVal;
+}
 
 void cprint(char * string ) {
     int i = 0 ,j;
@@ -249,15 +276,14 @@ void cprint(char * string ) {
             }
             if (tmpString[2] != '/') {
                 tmpString[5] = '\0';
-                
                 // DECORATION
-                if (strcmp(tmpString, START_BOLD) == 0 ) textBold(TRUE);
-                else if (strcmp(tmpString, START_BLINK) == 0 ) textBlink(TRUE);
-                else if (strcmp(tmpString, START_UNDERLINE) == 0 ) textUnderline(TRUE);
-                else if (strcmp(tmpString, START_BG_INTENSITY) == 0 ) highBgIntensity(TRUE);
-                else if (strcmp(tmpString, START_FG_INTENSITY) == 0  ) highFgIntensity(TRUE);
-                else if (strcmp(tmpString, START_REVERSE) == 0 ) colorReverse(TRUE);
-                else {
+                if (strcmp(tmpString, START_BOLD) == 0 ) { textBold(TRUE); i=i+5; }
+                else if (strcmp(tmpString, START_BLINK) == 0 ) { textBlink(TRUE); i=i+5; }
+                else if (strcmp(tmpString, START_UNDERLINE) == 0 ) { textUnderline(TRUE); i=i+5; }
+                else if (strcmp(tmpString, START_BG_INTENSITY) == 0 ) { highBgIntensity(TRUE); i=i+5; }
+                else if (strcmp(tmpString, START_FG_INTENSITY) == 0  ) { highFgIntensity(TRUE); i=i+5; }
+                else if (strcmp(tmpString, START_REVERSE) == 0 ) { colorReverse(TRUE); i=i+5; }
+                else if (colorChanged(tmpString)==TRUE) {
                     
                     // BACKGROUND COLOR
                     BGCOLOR = (strcmp(tmpString, START_BG) == 0 ) ? DEFAULT : BGCOLOR ;
@@ -284,20 +310,26 @@ void cprint(char * string ) {
                     //APPLY NEW DECORE
                     bgColor(BGCOLOR);
                     fgColor(FGCOLOR);
+					 i=i+5; 
                 }
-                i= i+5 ;
+				else {
+					printf("%c",string[i]);
+					i++;
+				}
             }
             else {
-                if (strcmp(tmpString, STOP_BOLD) == 0 ) textBold(FALSE);
-                else if (strcmp(tmpString, STOP_UNDERLINE) == 0 ) textUnderline(FALSE);
-                else if (strcmp(tmpString, STOP_BLINK) == 0 ) textBlink(FALSE);
-                else if (strcmp(tmpString, STOP_REVERSE) == 0 ) colorReverse(FALSE);
-                else if (strcmp(tmpString, STOP_BG_INTENSITY) == 0 ) highBgIntensity(FALSE);
-                else if (strcmp(tmpString, STOP_FG_INTENSITY) == 0 ) highFgIntensity(FALSE);
-                else if (strcmp(tmpString, STOP_BG) == 0 ) bgColor(DEFAULT);
-                else if (strcmp(tmpString, STOP_FG) == 0 ) fgColor(DEFAULT);
-                
-                i= i+6 ;
+                if (strcmp(tmpString, STOP_BOLD) == 0 ) { textBold(FALSE); i=i+6; }
+                else if (strcmp(tmpString, STOP_UNDERLINE) == 0 ) { textUnderline(FALSE); i=i+6; }
+                else if (strcmp(tmpString, STOP_BLINK) == 0 ) { textBlink(FALSE); i=i+6; }
+                else if (strcmp(tmpString, STOP_REVERSE) == 0 ) { colorReverse(FALSE); i=i+6; }
+                else if (strcmp(tmpString, STOP_BG_INTENSITY) == 0 ) { highBgIntensity(FALSE); i=i+6; }
+                else if (strcmp(tmpString, STOP_FG_INTENSITY) == 0 ) { highFgIntensity(FALSE); i=i+6; }
+                else if (strcmp(tmpString, STOP_BG) == 0 ) { bgColor(DEFAULT); i=i+6; }
+                else if (strcmp(tmpString, STOP_FG) == 0 ) { fgColor(DEFAULT); i=i+6; }
+                else {
+					printf("%c",string[i]);
+					i++;
+				}
             }
         }
         else {
