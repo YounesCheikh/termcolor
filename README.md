@@ -1,13 +1,29 @@
 Termcolor
 =========
 
+	  _____                    ____      _                
+	 |_   _|__ _ __ _ __ ___  / ___|___ | | ___  _ __  
+	   | |/ _ \ '__| '_ ` _ \| |   / _ \| |/ _ \| '__|   
+	   | |  __/ |  | | | | | | |__| (_) | | (_) | |      
+	   |_|\___|_|  |_| |_| |_|\____\___/|_|\___/|_|      
+	  ------------------------------------------------
+	   	                                                  
+
+
 Is a C library used for ANSII Color formatting for terminal output.
 There are to ways to get a formatted text on the terminal output using this library:
 
 * [library functions](#library-functions)
-* [cprint function](#use-cprint)
+* [cprint function](#use-cprint) &larr; &hearts;
 
 ![Termcolor Library](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png) 
+
+##Installation:
+
+There is no installation required, you need just to download the termcolor.h file, include it in your code then start use the libray :)
+
+	#include "termcolor.h"
+	
 
 ## library functions:
 ### Available Colors:
@@ -331,9 +347,16 @@ Otherwise, if you forget to close the tags in the previous `cprint()` , the next
 	```
 	this will display both **Hello** and **world** in bold
 	
+## TODO:
+* insert horizontal line with specified color.
+* Text align : [Left ; Center ; Right ]
+* Text Border.
 
+### Fork me on GitHub:
 
-###Who am i ?
+I'll be very happy to take pull requests from others, Go ahead and fork me.
+
+###Who are you?
 My name is [Younes Cheikh][1] C-addicted, student and desktop applications developer, follow me on [twitter][2] or visite my [personal website][3] :)
 
 
