@@ -2,10 +2,14 @@ Termcolor
 =========
 
 Is a C library used for ANSII Color formatting for terminal output.
+There are to ways to get a formatted text on the terminal output using this library:
+
+* [library functions](#library-functions)
+* [cprint function](#use-cprint)
 
 ![Termcolor Library](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png) 
 
-## Output format using library functions:
+## library functions:
 ### Available Colors:
  `BLACK` `RED` `GREEN` `YELLOW` `BLUE` `MAGENTA` `CYAN` `WHITE`
 
