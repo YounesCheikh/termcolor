@@ -142,9 +142,9 @@ Otherwise, if you forget to close the tags in the previous `cprint()` , the next
 	
 ### cprint() and variables:
 Currently, `cprint()` must exactly take one arguments (char *) , 
-in the next versions may be developed to take more than one which the case of `printf()` .
+in the next versions may be developed to take more than one which is the case of `printf()` .
 
-So to print a variable using effects, you must disable `auto reset` by doing : `autoResetStyle(FALSE);` than put the printf(args) between tow cprint()s.
+So to print a variable using effects, you must disable `auto reset` by doing : `autoResetStyle(FALSE);` then put the printf(args) between tow cprint()s.
 #### Example: 
 
 ```
