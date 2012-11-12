@@ -23,7 +23,7 @@ There are to ways to install `termcolor.h` library:
 ### 1. Install into gcc includes folder :
 &rarr; ```need root permissions```
 ```
-sudo curl https://raw.github.com/cyounes/termcolor/master/quickinstall.sh | sh 
+curl https://raw.github.com/cyounes/termcolor/master/quickinstall.sh | sh 
 ```
 include it in your code:
 ```

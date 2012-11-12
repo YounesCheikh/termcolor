@@ -1,12 +1,11 @@
 #!/bin/sh
 
-ROOT_UID="0"
 
 #Check if run as root
-if [ `whoami` != root ]; then
-  echo Please run this script as root or using sudo
-  exit
-fi
+#if [ `whoami` != root ]; then
+#  echo Please run this script as root or using sudo
+#  exit
+#fi
 does_folder_exist() {
   if [ -d $HOME/$1 ]
   then
