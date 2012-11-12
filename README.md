@@ -5,14 +5,15 @@ Is a C library used for ANSII Color formatting for terminal output.
 
 ![Termcolor Library](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png) 
 
-## Available Colors:
+## Output format using library functions:
+### Available Colors:
  `BLACK` `RED` `GREEN` `YELLOW` `BLUE` `MAGENTA` `CYAN` `WHITE`
 
 
-## BOOLEAN ?
+### BOOLEAN ?
 By including **termcolor** library in your code, you don't need to include the ~~**stdbool**~~ library. However you need to write the boolean keywords in uppercase characters:  ***TRUE***  and ***FALSE*** 
 
-## Functions:
+### Functions:
 
 #### Colors: 
 
@@ -69,7 +70,7 @@ for `bgColor(COLOR)` and `fgColor(COLOR)` functions use the variable `DEFAULT`as
 
 + `setStyle()` : Usually the programer don't need to invoke this function, it will be invoked automatically by the other functions each time you change the style.
 
-+ `resetStyle()` : Reset all colors and decorations by default!, i segues to invoke this function at the end of your main to restore all as default.
++ `resetStyle()` : Reset all colors and decorations by default!, i suggest to invoke this function at the end of your main to restore all as default.
 
 ### Examples:
 ##### Red Background:
@@ -224,6 +225,108 @@ the output of its console application.\n\n");
 ######Result:
 ![termcolor Reversed colors](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png)
 -
+
+## Use cprint(): 
+i suggest to use `cprint()` function to decorate the output code instead of the previous functions! 
+`cprint()` facilitates the use of the **termcolor** library, the programer needs to know just some tags to get a good results.
+* Example 1: 
+
+	```
+	cprint("${bd}Hello world!${/bd}\n");
+	```
+In this example, the `${bd}` tag tells the program to **START** showing text in bold and the `${/bd}` tag tells the program to **STOP** showing text in bold.
+
+* Example 2:
+
+	```
+	cprint("${ul}Hello world!${/ul}\n");
+	```
+In the second example, the `${ul}` tag tells the program to **START** underlining text and the `${/ul}` tag tells the program to **STOP** underlining the text.
+
+### Easy to use?
+The principle of using this function is roughly the principle of html tag, every time you open a tag you must close it after inserting a code.
+Except it is not quite the same, as you will see in the following examples…
+
+### Tags:
+
+#### Text decoration
+Tag name: 	| 	What it does:
+----------- | ----------------
+${bd}		| Start Bold
+${/bd}		| Stop Bold
+${ul}		| Start Underline
+${/ul}		| Stop underline
+${bl}		| Start blink
+${/bl}		| Stop blink
+------------------------------
+#### Colors:
+##### Effects: 
+Tag name:	|	What it does:
+----------- | ------------------------------------------------
+${rv} 		| reverse colors
+${/rv}		| stop reversing colors
+${bi}		| use high intensity for background color
+${/bi}		| stop using high intensity for background color
+${fi}		| use high intensity for foreground color
+${/fi}		| stop using high intensity for foreground color
+---------------------------------------------------------------
+
+##### Foreground and Background colors:
+
+###### Background color tags: 
+
+Tag name: 	|	What it does:
+----------- | -------------------------		
+${bb}		| Black background
+${rb}		| Red background
+${gb}		| Green background
+${yb}		| Yellow background
+${ub}		| Blue background
+${mb}		| Magenta background
+${cb}		| Cyan background
+${wb}		| White background
+${/bg} 		| Stop using background
+---------------------------------------
+
+###### Foreground color tags:
+
+Tag name: 	|	What it does:
+----------- | -------------------------	 
+${bf}		| Black foreground
+${rf}		| Red foreground
+${gf}		| Green foreground
+${yf}		| Yellow foreground
+${uf}		| Blue foreground
+${mf}		| Magenta foreground
+${cf}		| Cyan foreground
+${wf}		| White foreground
+${/fg}		| Stop using foreground
+----------------------------------------
+
+### autoResetStyle(): 
+This function has one `BOOLEAN` argument, when it take the `TRUE` variable, you need to restart all effects and decoration you did in the previous `cprint()`.
+Otherwise, if you forget to close the tags in the previous `cprint()` , the next one continue applying all the effects and decorations that you have forgot to close.
+
+* Example:
+
+	* _auto reset_ :
+	
+	```
+	autoResetStyle(TRUE);
+	cprint("${bd}Hello ");
+	cprint("world\n");
+	```
+	this will display **Hello** in bold and world in normal weight.
+
+	* _don't auto reset_ :
+	
+	```
+	autoResetStyle(FALSE);
+	cprint("${bd}Hello ");
+	cprint("world\n");
+	```
+	this will display both **Hello** and **world** in bold
+	
 
 
 ###Who am i ?
