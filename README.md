@@ -12,6 +12,7 @@ Termcolor
 
 Is a C library used for ANSII Color formatting for terminal output.
 
+* [Installation](#installation);
 * [Termcolor users documentation](#termcolor-users-documentation) &larr; &hearts;
 * [Termcolor developers documentation](#termcolor-developers-documentation)
 
