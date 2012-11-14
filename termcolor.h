@@ -14,15 +14,14 @@
  *
  * for more informations contact at <contact@cYounes.com>
  *
- * author: Younes Cheikh : cyounes@twitter
+ * author: Younes Cheikh : cyounes@twitter | younes.cheikh{at}gmail{dot}com
  * Project Page: https://github.com/cyounes/termcolor
  */
 
 
 /*
  * About: ANSII Color formatting for output in terminal.
- * TODO: Add code documentation
- * TODO: add Italic decoration
+ * Version: 0.1
  */
 
 #ifndef _TERMCOLOR_H
