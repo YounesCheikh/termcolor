@@ -143,19 +143,23 @@ Otherwise, if you forget to close the tags in the previous `cprint()` , the next
 	this will display both **Hello** and **world** in bold
 	
 ### cprint() and variables:
-Currently, `cprint()` must exactly take one arguments (char *) , 
-in the next versions may be developed to take more than one which is the case of `printf()` .
+Currently, `cprint()` ~~must exactly take one arguments (char *)~~ takes more than one argument, 
+however it takes only the `int %d` , `char %c` and strings `char * %s` , it may prints anything wrong
+if you give a long or float argument.
+in the next versions may be developed to take all the data types possible which is the case of `printf()` .
 
-So to print a variable using effects, you must disable `auto reset` by doing : `autoResetStyle(FALSE);` then put the printf(args) between tow cprint()s.
+So to print a variable of another data type using effects,
+you must disable `auto reset` by doing : `autoResetStyle(FALSE);`
+then put the printf(args) between tow cprint()s.
 #### Example: 
 
 ```
-	int a=10, b=10;
+	long a=10, b=10;
 	autoResetStyle(FALSE);
 	cprint("a = ${bd} }
-	printf("%d",a);
+	printf("%ld",a);
 	cprint("${/bd} b= ${bd}");
-	printf("%d, b);
+	printf("%ld, b);
 	cprint("${/bd}\n");
 ```
 

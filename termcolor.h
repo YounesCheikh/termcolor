@@ -21,7 +21,7 @@
 
 /*
  * About: ANSII Color formatting for output in terminal.
- * Version: 0.1
+ * Version: 0.2
  */
 
 #ifndef _TERMCOLOR_H
@@ -29,7 +29,7 @@
 
 #include <stdio.h>
 #include <string.h>
-
+#include <stdarg.h>
 
 
 /*
@@ -141,7 +141,7 @@ void autoResetStyle(BOOLEAN autoReset) ;
 
 BOOLEAN colorChanged(char * tmpString);
 
-void cprint(char * string);
+void cprint(const char* string, ...);
 
 
 /*
@@ -265,11 +265,33 @@ BOOLEAN colorChanged(char * tmpString) {
 	return retVal;
 }
 
-void cprint(char * string ) {
+void cprint(const char* string, ...) {
+	va_list listPointer;
+	va_start( listPointer, string );
     int i = 0 ,j;
     char tmpString[7];
     while (i < strlen(string)) {
-        if (string[i]=='$') {
+		if (string[i] == '%' ) {
+			if (string[i+1] == 'd') {
+				printf("%d",va_arg( listPointer, int ));
+				i=i+2;
+			}
+			else if (string[i+1] == 'c') {
+				printf("%c",(char) va_arg( listPointer, int ));
+				i=i+2;
+			}
+			else if (string[i+1] == 's') {
+				char * subString = va_arg( listPointer, char * ) ;
+				int nops = (int)strlen(subString) -1 ;
+				printf("%s",subString);
+				i=i+2;
+			}
+			else {	
+				printf("%c",string[i]);
+				i++;
+			}
+		}
+        else if (string[i]=='$') {
             for (j=0; j<6;j++) {
                 tmpString[j] = string[i+j];
             }
@@ -336,6 +358,7 @@ void cprint(char * string ) {
             i++;
         }
     }
+    va_end( listPointer );
     if (_AUTO_RESET)
         resetStyle();
 }
