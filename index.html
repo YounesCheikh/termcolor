@@ -1,0 +1,552 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Termcolor</title>
+  <meta name="description" content="ANSII Color formatting for terminal output">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Termcolor</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">ANSII Color formatting for terminal output</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/cyounes/termcolor/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/cyounes/termcolor/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/cyounes/termcolor" class="code">View Termcolor on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>Termcolor</h1>
+
+<pre><code>  _____                    ____      _                
+ |_   _|__ _ __ _ __ ___  / ___|___ | | ___  _ __  
+   | |/ _ \ '__| '_ ` _ \| |   / _ \| |/ _ \| '__|   
+   | |  __/ |  | | | | | | |__| (_) | | (_) | |      
+   |_|\___|_|  |_| |_| |_|\____\___/|_|\___/|_|      
+  ------------------------------------------------
+</code></pre>
+
+<p>Is a C library used for ANSII Color formatting for Linux/Mac terminal output.</p>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li>
+<a href="#termcolor-users-documentation">Termcolor users documentation</a> ← ♥</li>
+<li><a href="#termcolor-developers-documentation">Termcolor developers documentation</a></li>
+</ul><p><img src="https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png" alt="Termcolor Library"></p>
+
+<h2>Installation:</h2>
+
+<p>There are two ways to install <code>termcolor.h</code> library:</p>
+
+<h3>1. Install into gcc includes folder :</h3>
+
+<p>→ <code>need root permissions</code></p>
+
+<pre><code>curl https://raw.github.com/cyounes/termcolor/master/quickinstall.sh | sh 
+</code></pre>
+
+<p>include it in your code:</p>
+
+<pre><code>#include &lt;termcolor.h&gt;
+</code></pre>
+
+<h3>2. download termcolor.h in your project folder:</h3>
+
+<p>get <code>termcolor.h</code> file:</p>
+
+<pre><code>curl -O https://raw.github.com/cyounes/termcolor/master/termcolor.h 
+</code></pre>
+
+<p>include it in your code then start use the libray :)</p>
+
+<pre><code>#include "termcolor.h"
+</code></pre>
+
+<h2>Termcolor users documentation:</h2>
+
+<p><code>cprint()</code> function facilitates the use of the <strong>termcolor</strong> library, the programer needs to know just some tags to get a good results. So to get a good results you must be <strong>OK</strong> to use <code>cprint()</code> instead of <code>printf()</code> :P</p>
+
+<ul>
+<li>
+<p>Example 1: </p>
+
+<pre><code>cprint("${bd}Hello world!${/bd}\n");
+</code></pre>
+
+<p>In this example, the <code>${bd}</code> tag tells the program to <strong>START</strong> showing text in bold and the <code>${/bd}</code> tag tells the program to <strong>STOP</strong> showing text in bold.</p>
+</li>
+<li>
+<p>Example 2:</p>
+
+<pre><code>cprint("${ul}Hello world!${/ul}\n");
+</code></pre>
+
+<p>In the second example, the <code>${ul}</code> tag tells the program to <strong>START</strong> underlining text and the <code>${/ul}</code> tag tells the program to <strong>STOP</strong> underlining the text.</p>
+</li>
+</ul><h3>Easy to use?</h3>
+
+<p>The principle of using this function is roughly the principle of html tag, every time you open a tag you must close it after inserting a code.
+Except it is not quite the same, as you will see in the following examples…</p>
+
+<h3>Tags:</h3>
+
+<h4>Text decoration</h4>
+
+<table>
+<tr>
+<th>Tag name:</th>
+<th>What it does:</th>
+</tr>
+<tr>
+<td>${bd}</td>
+<td>Start Bold</td>
+</tr>
+<tr>
+<td>${/bd}</td>
+<td>Stop Bold</td>
+</tr>
+<tr>
+<td>${ul}</td>
+<td>Start Underline</td>
+</tr>
+<tr>
+<td>${/ul}</td>
+<td>Stop underline</td>
+</tr>
+<tr>
+<td>${bl}</td>
+<td>Start blink</td>
+</tr>
+<tr>
+<td>${/bl}</td>
+<td>Stop blink</td>
+</tr>
+</table><hr><h4>Colors:</h4>
+
+<h5>Effects:</h5>
+
+<table>
+<tr>
+<th>Tag name:</th>
+<th>What it does:</th>
+</tr>
+<tr>
+<td>${rv}</td>
+<td>reverse colors</td>
+</tr>
+<tr>
+<td>${/rv}</td>
+<td>stop reversing colors</td>
+</tr>
+<tr>
+<td>${bi}</td>
+<td>use high intensity for background color</td>
+</tr>
+<tr>
+<td>${/bi}</td>
+<td>stop using high intensity for background color</td>
+</tr>
+<tr>
+<td>${fi}</td>
+<td>use high intensity for foreground color</td>
+</tr>
+<tr>
+<td>${/fi}</td>
+<td>stop using high intensity for foreground color</td>
+</tr>
+</table><hr><h5>Foreground and Background colors:</h5>
+
+<h6>Background color tags:</h6>
+
+<table>
+<tr>
+<th>Tag name:</th>
+<th>What it does:</th>
+</tr>
+<tr>
+<td>${bb}</td>
+<td>Black background</td>
+</tr>
+<tr>
+<td>${rb}</td>
+<td>Red background</td>
+</tr>
+<tr>
+<td>${gb}</td>
+<td>Green background</td>
+</tr>
+<tr>
+<td>${yb}</td>
+<td>Yellow background</td>
+</tr>
+<tr>
+<td>${ub}</td>
+<td>Blue background</td>
+</tr>
+<tr>
+<td>${mb}</td>
+<td>Magenta background</td>
+</tr>
+<tr>
+<td>${cb}</td>
+<td>Cyan background</td>
+</tr>
+<tr>
+<td>${wb}</td>
+<td>White background</td>
+</tr>
+<tr>
+<td>${/bg}</td>
+<td>Stop using background</td>
+</tr>
+</table><hr><h6>Foreground color tags:</h6>
+
+<table>
+<tr>
+<th>Tag name:</th>
+<th>What it does:</th>
+</tr>
+<tr>
+<td>${bf}</td>
+<td>Black foreground</td>
+</tr>
+<tr>
+<td>${rf}</td>
+<td>Red foreground</td>
+</tr>
+<tr>
+<td>${gf}</td>
+<td>Green foreground</td>
+</tr>
+<tr>
+<td>${yf}</td>
+<td>Yellow foreground</td>
+</tr>
+<tr>
+<td>${uf}</td>
+<td>Blue foreground</td>
+</tr>
+<tr>
+<td>${mf}</td>
+<td>Magenta foreground</td>
+</tr>
+<tr>
+<td>${cf}</td>
+<td>Cyan foreground</td>
+</tr>
+<tr>
+<td>${wf}</td>
+<td>White foreground</td>
+</tr>
+<tr>
+<td>${/fg}</td>
+<td>Stop using foreground</td>
+</tr>
+</table><hr><h3>autoResetStyle():</h3>
+
+<p>This function has one <code>BOOLEAN</code> argument, when it take the <code>TRUE</code> variable, you need to restart all effects and decoration you did in the previous <code>cprint()</code>.
+Otherwise, if you forget to close the tags in the previous <code>cprint()</code> , the next one continue applying all the effects and decorations that you have forgot to close.</p>
+
+<ul>
+<li>
+<p>Example:</p>
+
+<ul>
+<li>
+<em>auto reset</em> :</li>
+</ul>
+<pre><code>autoResetStyle(TRUE);
+cprint("${bd}Hello ");
+cprint("world\n");
+</code></pre>
+
+<p>this will display <strong>Hello</strong> in bold and world in normal weight.</p>
+
+<ul>
+<li>
+<em>don't auto reset</em> :</li>
+</ul>
+<pre><code>autoResetStyle(FALSE);
+cprint("${bd}Hello ");
+cprint("world\n");
+</code></pre>
+
+<p>this will display both <strong>Hello</strong> and <strong>world</strong> in bold</p>
+</li>
+</ul><h3>cprint() and variables:</h3>
+
+<p>Currently, <code>cprint()</code> <del>must exactly take one arguments (char *)</del> takes more than one argument, 
+however it takes only the <code>int %d</code> , <code>char %c</code> and strings <code>char * %s</code> , it may prints anything wrong
+if you give a long or float argument.
+in the next versions may be developed to take all the data types possible which is the case of <code>printf()</code> .</p>
+
+<p>So to print a variable of another data type using effects,
+you must disable <code>auto reset</code> by doing : <code>autoResetStyle(FALSE);</code>
+then put the printf(args) between tow cprint()s.</p>
+
+<h4>Example:</h4>
+
+<pre><code>    long a=10, b=10;
+    autoResetStyle(FALSE);
+    cprint("a = ${bd} }
+    printf("%ld",a);
+    cprint("${/bd} b= ${bd}");
+    printf("%ld, b);
+    cprint("${/bd}\n");
+</code></pre>
+
+<h2>Termcolor developers documentation:</h2>
+
+<h3>Available Colors:</h3>
+
+<p><code>BLACK</code> <code>RED</code> <code>GREEN</code> <code>YELLOW</code> <code>BLUE</code> <code>MAGENTA</code> <code>CYAN</code> <code>WHITE</code></p>
+
+<h3>BOOLEAN ?</h3>
+
+<p>By including <strong>termcolor</strong> library in your code, you don't need to include the <del><strong>stdbool</strong></del> library. However you need to write the boolean keywords in uppercase characters:  <strong><em>TRUE</em></strong>  and <strong><em>FALSE</em></strong> </p>
+
+<h3>Functions:</h3>
+
+<h4>Colors:</h4>
+
+<ul>
+<li><p><code>bgColor(COLOR)</code> : set the background color using the available colors.</p></li>
+<li><p><code>fgColor(COLOR)</code> : set the foreground color using the available colors.</p></li>
+</ul><p>for <code>bgColor(COLOR)</code> and <code>fgColor(COLOR)</code> functions use the variable <code>DEFAULT</code>as parameter to reset the default color:</p>
+
+<pre><code>    bgColor(DEFAULT);
+    fgColor(DEFAULT);
+</code></pre>
+
+<h4>Text decorations:</h4>
+
+<ul>
+<li>
+<p><code>textBold(BOOLEAN)</code> : enable or disable text bolding for the next output:</p>
+
+<pre><code>    textBold(TRUE); 
+    textBold(FALSE);
+</code></pre>
+</li>
+<li>
+<p><code>textBlink(BOOLEAN)</code> : enable or disable text blinking for the next output:</p>
+
+<pre><code>    textBlink(TRUE); 
+    textBlink(FALSE);
+</code></pre>
+</li>
+<li>
+<p><code>colorReverse(BOOLEAN)</code>: enable or disable colors reversing for the next output:</p>
+
+<pre><code>    colorReverse(TRUE); 
+    colorReverse(FALSE);
+</code></pre>
+</li>
+<li><p><code>textUnderline(BOOLEAN)</code>: underline text</p></li>
+<li><p><code>highFgIntensity(BOOLEAN)</code> : Use High Intensity for foreground colors.</p></li>
+<li><p><code>highBgIntensity(BOOLEAN)</code> : Use High Intensity for background colors.</p></li>
+<li><p><code>setStyle()</code> : Usually the programer don't need to invoke this function, it will be invoked automatically by the other functions each time you change the style.</p></li>
+<li><p><code>resetStyle()</code> : Reset all colors and decorations by default!, i suggest to invoke this function at the end of your main to restore all as default.</p></li>
+</ul><h3>Examples:</h3>
+
+<h5>Red Background:</h5>
+
+<pre><code>    bgColor(RED);
+    printf("text with RED Background");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/red_background.png" alt="termcolor red background"></h2>
+
+<h5>Default background + Red foreground:</h5>
+
+<pre><code>    bgColor(DEFAULT);
+    fgColor(RED);
+    printf("text with RED Foreground");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/red_foreground.png" alt="termcolor red foreground"></h2>
+
+<h5>Yellow text on red background:</h5>
+
+<pre><code>    bgColor(RED);
+    fgColor(YELLOW);
+    printf("YELLOW text in RED Background");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/yellow_in_red.png" alt="Yellow text on red background"></h2>
+
+<h5>Yellow Bold text on red background:</h5>
+
+<pre><code>    bgColor(RED);
+    fgColor(YELLOW);
+    textBold(TRUE);
+    printf("YELLOW and BOLD text in RED Background");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/bold_yellow_in_red.png" alt="termcolor Yellow Bold text on red background"></h2>
+
+<h5>Yellow, Bold and underlined text on red background:</h5>
+
+<pre><code>    bgColor(RED);
+    fgColor(YELLOW);
+    textBold(TRUE);
+    textUnderline(TRUE);
+    printf("YELLOW and BOLD text in RED Background");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/bold_yellow_underline.png" alt="termcolor Yellow, Bold and underlined text on red background"></h2>
+
+<h5>High Intensity: Yellow Bold text on red background:</h5>
+
+<pre><code>    bgColor(RED);
+    fgColor(YELLOW);
+    textBold(TRUE);
+    highFgIntensity(TRUE);
+    highBgIntensity(TRUE);
+    printf("YELLOW and BOLD text in RED Background");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/high_intens.png" alt="termcolor High Intensity: Yellow Bold text on red background"></h2>
+
+<h5>Reversed colors:</h5>
+
+<pre><code>    bgColor(DEFAULT);
+    fgColor(DEFAULT);
+    textBold(TRUE);
+    textUnderline(TRUE);
+    printf("REVERSED test with default foreground and default background :)");
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/reversed_colors.png" alt="termcolor Reversed colors"></h2>
+
+<h5>Main Example:</h5>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include "termcolor.h"
+
+int main() {
+
+    printf("Hi, Thanks for trying termcolor library :) \n" );
+    printf("Using this library allow the developer to decorate \
+the output of its console application.\n\n");
+    printf("Some Examples: \n\n");
+
+    bgColor(RED); // Background RED and not "RED" !
+    printf("text with RED Background\n\n");
+    bgColor(DEFAULT); // Default Background Color
+    fgColor(RED); // RED Foreground color 
+    printf("text with RED Foreground\n\n");
+    bgColor(RED);
+    fgColor(YELLOW);
+    printf("YELLOW text in RED Background\n\n");
+    textBold(TRUE); // Bold Text
+    printf("YELLOW and BOLD text in RED Background\n\n");
+    textUnderline(TRUE); // Underlined text 
+    bgColor(DEFAULT);
+    printf("YELLOW and BOLD and Underlined text\n\n");
+    fgColor(DEFAULT);
+    colorReverse(TRUE);
+    printf("REVERSED test with default foreground and default background :)\n\n");
+    colorReverse(FALSE);
+    textBlink(TRUE);
+    printf("BLINKING text with default foreground and default background\n\n");
+
+    resetStyle(); // Reset all as default 
+    printf("Now Examples using High Intensity\n\n");
+    highFgIntensity(TRUE);
+    highBgIntensity(TRUE);
+    bgColor(RED);
+    printf("text with RED Background\n\n");
+    bgColor(DEFAULT);
+    fgColor(RED);
+    printf("text with RED Foreground\n\n");
+    bgColor(RED);
+    fgColor(YELLOW);
+    printf("YELLOW text in RED Background\n\n");
+    textBold(TRUE);
+    printf("YELLOW and BOLD text in RED Background\n\n");
+
+    resetStyle();
+    printf("Simple Text :D \n\n");
+
+    return 0;
+}
+
+</code></pre>
+
+<h6>Result:</h6>
+
+<h2><img src="https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png" alt="termcolor Reversed colors"></h2>
+
+<h2>TODO:</h2>
+
+<ul>
+<li>insert horizontal line with specified color.</li>
+<li>Text align : [Left ; Center ; Right ].</li>
+<li>Text Border.</li>
+<li>add availability to <code>cprint()</code> to take more than one argument.</li>
+</ul><h3>Fork me on GitHub:</h3>
+
+<p>I'll be very happy to take pull requests from others, Go ahead and fork me.</p>
+
+<h3>Who are you?</h3>
+
+<p>My name is <a href="http://github.com/cyounes/" title="c.Younes on github">Younes Cheikh</a> C-addicted, student and desktop applications developer, follow me on <a href="http://twitter/cyounes" title="@cyounes">twitter</a> or visite my <a href="http://cyounes.com/" title="personal website">personal website</a> :)</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/cyounes" class="avatar"><img src="https://secure.gravatar.com/avatar/aa413781a3cc7b265536282483dbe8a0?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/cyounes">cyounes</a> maintains <a href="https://github.com/cyounes/termcolor">Termcolor</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/cyounes/termcolor/tarball/master" class="tar">tar</a><a href="https://github.com/cyounes/termcolor/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
