@@ -20,7 +20,7 @@ Is a C library used for ANSII Color formatting for Linux/Mac terminal output.
 ![Termcolor Library](https://raw.github.com/cyounes/termcolor/master/examples/example_termcolor.png) 
 
 ##Installation:
-There are to ways to install `termcolor.h` library:
+There are two ways to install `termcolor.h` library:
 
 ### 1. Install into gcc includes folder :
 &rarr; ```need root permissions```
