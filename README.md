@@ -364,6 +364,10 @@ the output of its console application.\n\n");
 
 I'll be very happy to take pull requests from others, Go ahead and fork me.
 
+### License: 
+See LICENSE 
+
+
 ###Who are you?
 My name is [Younes Cheikh][1] C-addicted, student and desktop applications developer, follow me on [twitter][2] or visite my [personal website][3] :)
 
